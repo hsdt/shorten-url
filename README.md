@@ -23,8 +23,12 @@ npm install -g firebase-tools
 firebase functions:config:set config.api_key=YOUR_WEB_API_KEY
 firebase functions:config:set config.domain_uri_prefix=YOUR_DOMAIN_URI_PREFIX
 
+# run the following command in the functions directory before running firebase serve
 # cd functions
 firebase functions:config:get > .runtimeconfig.json
+
+# However, if you're using Windows PowerShell, replace the above command with:
+firebase functions:config:get | ac .runtimeconfig.json
 ```
 
 3. Start local development
