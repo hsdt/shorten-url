@@ -1,4 +1,5 @@
 const axios = require('axios');
+const debug = require('debug')('hsdt');
 
 // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
 const functions = require('firebase-functions');
@@ -16,7 +17,7 @@ exports.addUrl = functions.https.onRequest(async (req, res) => {
   const link = req.query.url || req.body.url || null;
 
   try {
-    console.log(`Getting shorten URL for: ${link}, api: ${firebaseDynamicLinkApi}`);
+    debug(`Getting shorten URL for: ${link}, api: ${firebaseDynamicLinkApi}`);
     let result = await axios.post(firebaseDynamicLinkApi, {
       dynamicLinkInfo: {
         domainUriPrefix,
